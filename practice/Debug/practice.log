@@ -1,0 +1,6 @@
+﻿  practice.c
+C:\Users\Danila\source\repos\practice\practice\practice.c(24,21): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+C:\Users\Danila\source\repos\practice\practice\practice.c(25,39): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+C:\Users\Danila\source\repos\practice\practice\practice.c(27,26): warning C4244: -=: преобразование "float" в "int", возможна потеря данных
+C:\Users\Danila\source\repos\practice\practice\practice.c(30,26): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+  practice.vcxproj -> C:\Users\Danila\source\repos\practice\Debug\practice.exe
