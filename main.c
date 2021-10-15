@@ -1,5 +1,6 @@
-﻿#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #define ARR_SIZE 100000     // Размер массива
 
 const float RAND_MAX_F = RAND_MAX;
@@ -13,6 +14,7 @@ float get_rand_range(const float min, const float max) {         // Генера
 }
 
 int main() {
+    srand(time(NULL));
     float minimum, maximum, arr[ARR_SIZE];
     int ost, num, sum = 0;
     scanf_s("%f", &minimum);      // Рандомное число от
@@ -22,11 +24,10 @@ int main() {
     }
     for (int j = 0; j < ARR_SIZE; j++) {        // Отделяем дробную часть и проверяем
         num = arr[j];
-        ost = (arr[j] - num) * 1000000;
+        ost = (arr[j] - num) * 1000000;     // Умножаем на 1000000 для того чтобы сдвинуть дробную часть влево
         if (ost < ARR_SIZE) {         // Проверка на существование индекса в массиве
             sum -= arr[j];
-        }
-        else {
+        } else {
             sum += arr[j];
         }
     }
