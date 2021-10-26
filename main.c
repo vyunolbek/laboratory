@@ -29,6 +29,7 @@ int main()
     scanf_s("%f", &minimum);       // Рандомное число от
     printf("Maximum of random number:");
     scanf_s("%f", &maximum);      // Рандомное число до
+    printf("\n");
     arr = (double*)malloc(arr_size * sizeof(double));
     if (minimum > maximum || arr_size <= 0)     // Проверка входных
     {
@@ -41,17 +42,18 @@ int main()
     }
     for (int j = 0; j < arr_size; j++)   // Отделяем дробную часть и проверяем
     {
-        ost = (arr[j] - (int)arr[j]) * pow(10, degree);     // Умножаем на 10^(degree) для того чтобы сдвинуть дробную часть влево
-        //printf("%d   %llf \n", ost, arr[j]);
+        if (arr[j] < 0) {
+            ost = (arr[j] + (int)arr[j] * (-1)) * pow(10, degree) * (-1);      // Умножаем на 10^(degree) для того чтобы сдвинуть дробную часть влево
+        } else
+            ost = (arr[j] - (int)arr[j]) * pow(10, degree);
+        printf("%d   %f\n", ost, arr[j]);
         if (ost < arr_size)         // Проверка на существование индекса в массиве
         {
-            sum -= arr[j];
-        } else
-        {
-            sum += arr[j];
+            arr[ost] = 0;
         }
-
     }
-    printf("\n %lf", sum);
+    for (int k = 0; k < arr_size; k++)
+        sum += arr[k];
+    printf("\n%lf", sum);
     return 0;
 }
